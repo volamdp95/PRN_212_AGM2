@@ -88,3 +88,5 @@ C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\Profile.baml
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\BookingHistory.baml
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\NguyenVanCauWPF.sourcelink.json
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\Views\RoomDetailDialog.baml
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\Views\RoomDetailDialog.g.cs

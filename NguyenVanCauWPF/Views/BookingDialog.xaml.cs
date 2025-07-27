@@ -3,91 +3,88 @@ using FUMiniHotelDataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace NguyenVanCauWPF.Views
 {
-    /// <summary>
-    /// Interaction logic for BookingDialog.xaml
-    /// </summary>
     public partial class BookingDialog : Window
     {
         private readonly BookingService _service;
-        private bool _isEdit;
+        private readonly BookingReservation _editing;
+        private List<BookingDetail> _details = new();
 
-        public BookingReservation Booking { get; set; }
-        public DateTime? BookingDate
-        {
-            get => Booking.BookingDate?.ToDateTime(TimeOnly.MinValue);
-            set => Booking.BookingDate = value.HasValue ? DateOnly.FromDateTime(value.Value) : null;
-        }
-
-        public List<Customer> Customers { get; set; }
-
-        public BookingDialog(BookingReservation? existing = null)
+        public BookingDialog()
         {
             InitializeComponent();
             _service = new BookingService();
-
-            if (existing == null)
-            {
-                Booking = new BookingReservation
-                {
-                    BookingDate = DateOnly.FromDateTime(DateTime.Today),
-                    BookingStatus = 1
-                };
-                _isEdit = false;
-            }
-            else
-            {
-                Booking = existing;
-                _isEdit = true;
-            }
-
-            this.DataContext = this;
-            //_ = LoadCustomersAsync();
         }
 
-        //private async System.Threading.Tasks.Task LoadCustomersAsync()
-        //{
-        //    Customers = await _service.GetAllCustomersAsync();
-        //    cboCustomer.ItemsSource = Customers;
-        //    cboCustomer.SelectedValue = Booking.CustomerID;
-        //}
+        public BookingDialog(BookingReservation existing) : this()
+        {
+            _editing = existing;
+            dpBookingDate.SelectedDate = existing.BookingDate?.ToDateTime(new TimeOnly(0, 0));
+            txtCustomerID.Text = existing.CustomerID.ToString();
+            txtStatus.Text = existing.BookingStatus?.ToString();
+            txtTotalPrice.Text = existing.TotalPrice?.ToString();
+            _details = existing.BookingDetails.ToList();
+            dgDetails.ItemsSource = _details;
+        }
 
-        //private async void Save_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        Booking.CustomerID = (int)cboCustomer.SelectedValue;
+        private void BtnAddRoom_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new RoomDetailDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                _details.Add(dialog.Result);
+                dgDetails.ItemsSource = null;
+                dgDetails.ItemsSource = _details;
+                txtTotalPrice.Text = _details.Sum(d => d.ActualPrice ?? 0).ToString();
+            }
+        }
 
-        //        if (_isEdit)
-        //            await _service.UpdateAsync(Booking);
-        //        else
-        //            await _service.AddAsync(Booking);
+        private void BtnRemoveRoom_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgDetails.SelectedItem is BookingDetail selected)
+            {
+                _details.Remove(selected);
+                dgDetails.ItemsSource = null;
+                dgDetails.ItemsSource = _details;
+                txtTotalPrice.Text = _details.Sum(d => d.ActualPrice ?? 0).ToString();
+            }
+        }
 
-        //        this.DialogResult = true;
-        //        this.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Lỗi khi lưu: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
-        //    }
-        //}
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (!dpBookingDate.SelectedDate.HasValue ||
+                !int.TryParse(txtCustomerID.Text, out int customerID) ||
+                !byte.TryParse(txtStatus.Text, out byte status))
+            {
+                MessageBox.Show("Invalid input");
+                return;
+            }
 
-        //private void Cancel_Click(object sender, RoutedEventArgs e)
-        //{
-        //    this.DialogResult = false;
-        //    this.Close();
-        //}
+            // ⚠️ Luôn tạo booking mới, chỉ giữ ID nếu là update
+            var booking = new BookingReservation
+            {
+                BookingReservationID = _editing?.BookingReservationID ?? 0, // ID cũ nếu là edit
+                BookingDate = DateOnly.FromDateTime(dpBookingDate.SelectedDate.Value),
+                CustomerID = customerID,
+                BookingStatus = status,
+                TotalPrice = _details.Sum(d => d.ActualPrice ?? 0)
+            };
+
+            if (_editing == null)
+                _service.AddBookingWithDetails(booking, _details);
+            else
+                _service.UpdateBookingWithDetails(booking, _details);
+
+            this.DialogResult = true;
+            this.Close();
+        }
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+            this.Close();
+        }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\App.xaml
-10-1004024141
+111090304615
 
-17-2043991746
+18582559863
 231-18542251
-BookingHistory.xaml;BookingManager.xaml;CustomerManager.xaml;LoginWindow.xaml;MainWindow.xaml;Profile.xaml;RoomManager.xaml;Views\BookingDialog.xaml;Views\CustomerDialog.xaml;Views\RoomDialog.xaml;
+BookingHistory.xaml;BookingManager.xaml;CustomerManager.xaml;LoginWindow.xaml;MainWindow.xaml;Profile.xaml;RoomManager.xaml;Views\BookingDialog.xaml;Views\CustomerDialog.xaml;Views\RoomDetailDialog.xaml;Views\RoomDialog.xaml;
 
 False
 

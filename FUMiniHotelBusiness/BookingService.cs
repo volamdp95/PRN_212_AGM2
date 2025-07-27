@@ -84,5 +84,44 @@ namespace FUMiniHotelBusiness
         {
             return await _context.BookingDetails.ToListAsync();
         }
+
+        public void AddBookingWithDetails(BookingReservation booking, List<BookingDetail> details)
+        {
+            _context.BookingReservations.Add(booking);
+            _context.SaveChanges();
+
+            foreach (var d in details)
+            {
+                d.BookingReservationID = booking.BookingReservationID;
+                _context.BookingDetails.Add(d);
+            }
+
+            _context.SaveChanges();
+        }
+
+        public void UpdateBookingWithDetails(BookingReservation updatedBooking, List<BookingDetail> newDetails)
+        {
+            var existing = _context.BookingReservations
+                .Include(b => b.BookingDetails)
+                .FirstOrDefault(b => b.BookingReservationID == updatedBooking.BookingReservationID);
+
+            if (existing != null)
+            {
+                // Cập nhật các thuộc tính cơ bản
+                _context.Entry(existing).CurrentValues.SetValues(updatedBooking);
+
+                // Xóa toàn bộ BookingDetails cũ
+                _context.BookingDetails.RemoveRange(existing.BookingDetails);
+
+                // Gán BookingReservationID và thêm lại BookingDetails mới
+                foreach (var detail in newDetails)
+                {
+                    detail.BookingReservationID = existing.BookingReservationID;
+                    _context.BookingDetails.Add(detail);
+                }
+
+                _context.SaveChanges();
+            }
+        }
     }
 }

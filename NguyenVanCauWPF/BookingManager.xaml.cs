@@ -19,58 +19,74 @@ namespace NguyenVanCauWPF
 {
     public partial class BookingManager : Window
     {
-        private BookingService _service;
+        private readonly BookingService _service;
 
         public BookingManager()
         {
             InitializeComponent();
             _service = new BookingService();
-            LoadBookingList();
+            LoadBookings();
         }
 
-        private void LoadBookingList()
+        private void LoadBookings()
         {
-            var bookings = _service.GetAllBookings();
+            var bookings = _service.GetAllBookings(); // đã Include BookingDetails + Customer
             dgBookingList.ItemsSource = bookings;
+            dgBookingDetails.ItemsSource = null;
+        }
+
+        private void dgBookingList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selected = dgBookingList.SelectedItem as BookingReservation;
+            if (selected != null)
+            {
+                dgBookingDetails.ItemsSource = selected.BookingDetails.ToList();
+            }
+            else
+            {
+                dgBookingDetails.ItemsSource = null;
+            }
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new BookingDialog();
+            var dialog = new Views.BookingDialog();
             if (dialog.ShowDialog() == true)
             {
-                LoadBookingList();
+                LoadBookings();
             }
         }
 
-        //private void BtnEdit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var selected = dgBookingList.SelectedItem as BookingReservation;
-        //    if (selected != null)
-        //    {
-        //        var dialog = new BookingDialog(selected.BookingReservationID);
-        //        if (dialog.ShowDialog() == true)
-        //        {
-        //            LoadBookingList();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Chọn một booking để chỉnh sửa.");
-        //    }
-        //}
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = dgBookingList.SelectedItem as BookingReservation;
+            if (selected == null)
+            {
+                MessageBox.Show("Please select a booking to edit.");
+                return;
+            }
+            var fullBooking = _service.GetBookingById(selected.BookingReservationID);
+            var dialog = new Views.BookingDialog(selected); // dùng constructor edit
+            if (dialog.ShowDialog() == true)
+            {
+                LoadBookings();
+            }
+        }
 
-        //private void dgBookingList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    var selectedBooking = dgBookingList.SelectedItem as BookingReservation;
-        //    if (selectedBooking != null)
-        //    {
-        //        dgBookingDetails.ItemsSource = selectedBooking.BookingDetails.ToList();
-        //    }
-        //    else
-        //    {
-        //        dgBookingDetails.ItemsSource = null;
-        //    }
-        //}
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = dgBookingList.SelectedItem as BookingReservation;
+            if (selected == null)
+            {
+                MessageBox.Show("Please select a booking to delete.");
+                return;
+            }
+
+            if (MessageBox.Show("Are you sure to delete this booking?", "Confirm", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                _service.DeleteBooking(selected.BookingReservationID);
+                LoadBookings();
+            }
+        }
     }
 }
