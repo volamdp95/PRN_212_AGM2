@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FUMiniHotelRepositories")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f1da0f9108d09fb4d5719ee1bd3c2321cb38ab72")]
 [assembly: System.Reflection.AssemblyProductAttribute("FUMiniHotelRepositories")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FUMiniHotelRepositories")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

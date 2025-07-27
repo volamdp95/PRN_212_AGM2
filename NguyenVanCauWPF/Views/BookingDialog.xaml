@@ -7,47 +7,6 @@
         mc:Ignorable="d"
         Title="BookingDialog" Height="450" Width="800">
     <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <!-- Booking info -->
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-            <TextBlock Text="Customer ID:" VerticalAlignment="Center"/>
-            <TextBox x:Name="txtCustomerID" Width="100" Margin="10,0"/>
-        </StackPanel>
-
-        <!-- Detail entry -->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10">
-            <TextBlock Text="Room ID:" VerticalAlignment="Center"/>
-            <TextBox x:Name="txtRoomID" Width="80" Margin="5,0"/>
-
-            <TextBlock Text="Start:" VerticalAlignment="Center"/>
-            <DatePicker x:Name="dpStart" Width="130" Margin="5,0"/>
-
-            <TextBlock Text="End:" VerticalAlignment="Center"/>
-            <DatePicker x:Name="dpEnd" Width="130" Margin="5,0"/>
-
-            <TextBlock Text="Price:" VerticalAlignment="Center"/>
-            <TextBox x:Name="txtPrice" Width="80" Margin="5,0"/>
-
-            <Button Content="Add Detail" Click="BtnAddDetail_Click" Margin="10,0"/>
-        </StackPanel>
-
-        <!-- Detail list -->
-        <DataGrid x:Name="dgDetails" Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="RoomID" Binding="{Binding RoomID}" Width="*"/>
-                <DataGridTextColumn Header="StartDate" Binding="{Binding StartDate}" Width="*"/>
-                <DataGridTextColumn Header="EndDate" Binding="{Binding EndDate}" Width="*"/>
-                <DataGridTextColumn Header="ActualPrice" Binding="{Binding ActualPrice}" Width="*"/>
-            </DataGrid.Columns>
-        </DataGrid>
-
-        <!-- Save -->
-        <Button Content="Save Booking" Grid.Row="3" HorizontalAlignment="Right" Width="120" Click="BtnSave_Click" Margin="0,10,0,0"/>
+        
     </Grid>
 </Window>

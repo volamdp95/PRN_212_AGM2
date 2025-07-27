@@ -41,7 +41,8 @@ namespace NguyenVanCauWPF
             if (matched != null)
             {
                 MessageBox.Show("Login as Customer", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                // TODO: Navigate to Customer Window if needed
+                var main = new Profile(email);
+                main.Show();
             }
             else
             {

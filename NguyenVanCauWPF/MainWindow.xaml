@@ -5,30 +5,150 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NguyenVanCauWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="FU Mini Hotel - Admin Dashboard" Height="500" Width="800"
+        WindowStartupLocation="CenterScreen">
 
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#f5f7fa"/>
+        </Grid.Background>
 
-    <Grid Background="White">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="436" >
-            <TextBlock Text="FU Mini Hotel - Admin Dashboad"
-                       FontSize="20" FontWeight="Bold" Foreground="#1e88e5"
-                       HorizontalAlignment="Center" Margin="0 0 0 30"/>
+        <!-- Main Content Card -->
+        <Border Width="450" Height="350" 
+                Background="White" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center"
+                Padding="40">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="15" 
+                                ShadowDepth="3" 
+                                Opacity="0.2" 
+                                Color="Black"/>
+            </Border.Effect>
 
-            <Button Content="Manage Customer" Height="40" Margin="0 0 0 10"
-                    Background="#bbdefb" Foreground="Black"
-                    FontWeight="SemiBold"
-                    Click="ManageCustomer_Click" />
+            <StackPanel>
+               
+                <!-- Management Buttons -->
+                <StackPanel Margin="0 25 0 0">
+                    <!-- Customer Management -->
+                    <Button Content="Manage Customer"
+                          Height="45" 
+                          Margin="0 0 0 12"
+                          Background="#6c757d" 
+                          Foreground="White"
+                          FontWeight="SemiBold"
+                          FontSize="14"
+                          BorderThickness="0"
+                          Cursor="Hand"
+                          Click="ManageCustomer_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#6c757d"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                                  CornerRadius="3">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                                VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#5a6268"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#495057"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
 
-            <Button Content="Manage Room" Height="40" Margin="0 0 0 10"
-                    Background="#4caf50" Foreground="White"
-                    FontWeight="SemiBold"
-                    Click="ManageRoom_Click" />
+                    <!-- Room Management -->
+                    <Button Content="Manage Room"
+                          Height="45" 
+                          Margin="0 12 0 0"
+                          Background="#28a745" 
+                          Foreground="White"
+                          FontWeight="SemiBold"
+                          FontSize="14"
+                          BorderThickness="0"
+                          Cursor="Hand"
+                          Click="ManageRoom_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28a745"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                                  CornerRadius="3">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                                VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#218838"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#1e7e34"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
 
-            <Button Content="Manage Booking" Height="40"
-                    Background="#ffa000" Foreground="White"
-                    FontWeight="SemiBold"
-                    Click="ManageBooking_Click" />
-        </StackPanel>
+                    <!-- Booking Management -->
+                    <Button Content="Manage Booking"
+                          Height="45" 
+                          Margin="0 12 0 0"
+                          Background="#ffc107" 
+                          Foreground="White"
+                          FontWeight="SemiBold"
+                          FontSize="14"
+                          BorderThickness="0"
+                          Cursor="Hand"
+                          Click="ManageBooking_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#ffc107"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" 
+                                                  CornerRadius="3">
+                                                <ContentPresenter HorizontalAlignment="Center" 
+                                                                VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#e0a800"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter Property="Background" Value="#d39e00"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+
+                <!-- Footer -->
+                <TextBlock Text="Select an option to manage hotel operations" 
+                         FontSize="13" 
+                         Foreground="#6c757d" 
+                         HorizontalAlignment="Center"
+                         Margin="0 25 0 0"/>
+            </StackPanel>
+        </Border>
     </Grid>
-    
 </Window>

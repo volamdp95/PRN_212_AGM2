@@ -12,3 +12,4 @@ C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelDataAcce
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelDataAccess\obj\Debug\net8.0\FUMiniHotelDataAccess.pdb
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelDataAccess\obj\Debug\net8.0\FUMiniHotelDataAccess.genruntimeconfig.cache
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelDataAccess\obj\Debug\net8.0\ref\FUMiniHotelDataAccess.dll
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelDataAccess\obj\Debug\net8.0\FUMiniHotelDataAccess.sourcelink.json

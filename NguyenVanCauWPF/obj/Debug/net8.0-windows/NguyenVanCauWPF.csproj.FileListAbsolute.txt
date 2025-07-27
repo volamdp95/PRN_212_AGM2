@@ -83,3 +83,8 @@ C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\Views\RoomDialog.baml
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\Views\BookingDialog.g.cs
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\Views\BookingDialog.baml
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\Profile.g.cs
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\BookingHistory.g.cs
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\Profile.baml
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\BookingHistory.baml
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\NguyenVanCauWPF\obj\Debug\net8.0-windows\NguyenVanCauWPF.sourcelink.json

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NguyenVanCauWPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f1da0f9108d09fb4d5719ee1bd3c2321cb38ab72")]
 [assembly: System.Reflection.AssemblyProductAttribute("NguyenVanCauWPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NguyenVanCauWPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

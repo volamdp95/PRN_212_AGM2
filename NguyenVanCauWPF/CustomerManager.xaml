@@ -5,41 +5,258 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NguyenVanCauWPF"
         mc:Ignorable="d"
-        Title="CustomerManager" Height="450" Width="800">
-    <DockPanel Margin="10">
-        <!-- Top search and add section -->
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0 0 0 10">
-            <TextBox x:Name="txtSearch" Width="220" Margin="0 0 10 0"
-                     Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
-                     />
-            <Button Content="Tìm" Width="80" Click="Search_Click"/>
-            <Button Content="Thêm" Width="80" Margin="10 0 0 0" Click="Add_Click"/>
-        </StackPanel>
+        Title="Customer Manager" Height="550" Width="950"
+        WindowStartupLocation="CenterScreen">
 
-        <!-- Customer table -->
-        <DataGrid x:Name="dgCustomer" ItemsSource="{Binding Customers}" 
-                  SelectedItem="{Binding SelectedCustomer}" 
-                  AutoGenerateColumns="False" IsReadOnly="True"
-                  Margin="0 10 0 0" CanUserAddRows="False" HeadersVisibility="Column">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding CustomerID}" Width="50"/>
-                <DataGridTextColumn Header="Họ tên" Binding="{Binding CustomerFullName}" Width="*"/>
-                <DataGridTextColumn Header="Email" Binding="{Binding EmailAddress}" Width="*"/>
-                <DataGridTextColumn Header="SĐT" Binding="{Binding Telephone}" Width="100"/>
-                <DataGridTextColumn Header="Ngày sinh" Binding="{Binding CustomerBirthday, StringFormat=d}" Width="120"/>
-                <DataGridTextColumn Header="Trạng thái" Binding="{Binding CustomerStatus}" Width="100"/>
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="#f8f9fa"/>
+        </Grid.Background>
 
-                <DataGridTemplateColumn Header="Tác vụ" Width="150">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Content="Sửa" Width="50" Margin="5 0" Click="Edit_Click"/>
-                                <Button Content="Xóa" Width="50" Click="Delete_Click"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-    </DockPanel>
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header -->
+            <Border Grid.Row="0" Background="White" Padding="20" Margin="0 0 0 15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.1" Color="Black"/>
+                </Border.Effect>
+
+                <StackPanel>
+                    <TextBlock Text="Customer Management" 
+                             FontSize="22" 
+                             FontWeight="Bold" 
+                             Foreground="#495057" 
+                             Margin="0 0 0 5"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Search and Action Bar -->
+            <Border Grid.Row="1" Background="White" Padding="20" Margin="0 15 0 15">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.1" Color="Black"/>
+                </Border.Effect>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Search Section -->
+                    <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Border Background="#ffffff" 
+                              BorderBrush="#dee2e6" 
+                              BorderThickness="1" 
+                              Width="250"
+                              Height="36">
+                            <TextBox x:Name="txtSearch" 
+                                   Background="Transparent" 
+                                   BorderThickness="0" 
+                                   Padding="12,0" 
+                                   FontSize="14" 
+                                   VerticalContentAlignment="Center"
+                                   Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                                   Foreground="#495057"/>
+                        </Border>
+
+                        <Button Content="Search" 
+                              Width="80" 
+                              Height="36"
+                              Margin="10 0 0 0"
+                              Background="#6c757d" 
+                              Foreground="White" 
+                              FontWeight="SemiBold"
+                              BorderThickness="0"
+                              Click="Search_Click">
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background" Value="#6c757d"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}" CornerRadius="3">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#5a6268"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+
+                    <!-- Add Button -->
+                    <Button Grid.Column="1" 
+                          Content="Add Customer" 
+                          Width="120" 
+                          Height="36"
+                          Background="#28a745" 
+                          Foreground="White" 
+                          FontWeight="SemiBold"
+                          BorderThickness="0"
+                          Click="Add_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#28a745"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="3">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#218838"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </Grid>
+            </Border>
+
+            <!-- Customer Data Grid -->
+            <Border Grid.Row="2" Background="White">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.1" Color="Black"/>
+                </Border.Effect>
+
+                <DataGrid x:Name="dgCustomer" 
+                        ItemsSource="{Binding Customers}" 
+                        SelectedItem="{Binding SelectedCustomer}" 
+                        AutoGenerateColumns="False" 
+                        IsReadOnly="True"
+                        CanUserAddRows="False" 
+                        HeadersVisibility="Column"
+                        GridLinesVisibility="Horizontal"
+                        HorizontalGridLinesBrush="#e9ecef"
+                        RowHeight="40"
+                        FontSize="13"
+                        Margin="1">
+
+                    <!-- DataGrid Styling -->
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#f8f9fa"/>
+                            <Setter Property="Foreground" Value="#495057"/>
+                            <Setter Property="FontWeight" Value="SemiBold"/>
+                            <Setter Property="Height" Value="38"/>
+                            <Setter Property="BorderBrush" Value="#dee2e6"/>
+                            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+                            <Setter Property="Padding" Value="12,0"/>
+                        </Style>
+
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#f8f9fa"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#e3f2fd"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Padding" Value="12,0"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Foreground" Value="#495057"/>
+                        </Style>
+                    </DataGrid.Resources>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding CustomerID}" Width="60"/>
+                        <DataGridTextColumn Header="Họ tên" Binding="{Binding CustomerFullName}" Width="160"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding EmailAddress}" Width="200"/>
+                        <DataGridTextColumn Header="SĐT" Binding="{Binding Telephone}" Width="120"/>
+                        <DataGridTextColumn Header="Ngày sinh" Binding="{Binding CustomerBirthday, StringFormat=dd/MM/yyyy}" Width="100"/>
+                        <DataGridTextColumn Header="Trạng thái" Binding="{Binding CustomerStatus}" Width="80"/>
+
+                        <DataGridTemplateColumn Header="Tác vụ" Width="120">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Button Content="Edit" 
+                                              Width="45" 
+                                              Height="28"
+                                              Margin="3 0" 
+                                              Background="#ffc107" 
+                                              Foreground="White"
+                                              FontSize="12"
+                                              BorderThickness="0"
+                                              Click="Edit_Click">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="#ffc107"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Button">
+                                                                <Border Background="{TemplateBinding Background}" CornerRadius="2">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#e0a800"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+
+                                        <Button Content="Del" 
+                                              Width="45" 
+                                              Height="28"
+                                              Margin="3 0"
+                                              Background="#dc3545" 
+                                              Foreground="White"
+                                              FontSize="12"
+                                              BorderThickness="0"
+                                              Click="Delete_Click">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Setter Property="Background" Value="#dc3545"/>
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="Button">
+                                                                <Border Background="{TemplateBinding Background}" CornerRadius="2">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="Background" Value="#c82333"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </Grid>
 </Window>

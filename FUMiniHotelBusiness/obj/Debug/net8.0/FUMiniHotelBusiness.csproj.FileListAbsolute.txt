@@ -15,3 +15,4 @@ C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\refint\FUMiniHotelBusiness.dll
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHotelBusiness.pdb
 C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\ref\FUMiniHotelBusiness.dll
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHotelBusiness.sourcelink.json

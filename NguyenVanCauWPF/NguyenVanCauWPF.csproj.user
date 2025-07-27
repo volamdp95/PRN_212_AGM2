@@ -5,10 +5,16 @@
     <Compile Update="BookingManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="BookingHistory.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CustomerManager.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Profile.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="RoomManager.xaml.cs">

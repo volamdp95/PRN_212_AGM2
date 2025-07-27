@@ -72,5 +72,17 @@ namespace FUMiniHotelBusiness
                 .OrderByDescending(b => b.BookingDetails.Min(d => d.StartDate))
                 .ToList();
         }
+
+        // Lấy danh sách tất cả BookingReservation
+        public async Task<List<BookingReservation>> GetBookingReservationsAsync()
+        {
+            return await _context.BookingReservations.ToListAsync();
+        }
+
+        // Lấy danh sách tất cả BookingDetail
+        public async Task<List<BookingDetail>> GetBookingDetailsAsync()
+        {
+            return await _context.BookingDetails.ToListAsync();
+        }
     }
 }
