@@ -1,0 +1,48 @@
+﻿<Window x:Class="NguyenVanCauWPF.BookingManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NguyenVanCauWPF"
+        mc:Ignorable="d"
+        Title="BookingManager" Height="459" Width="791">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- List Booking -->
+            <RowDefinition Height="Auto"/>
+            <!-- Buttons -->
+            <RowDefinition Height="*"/>
+            <!-- Booking Details -->
+        </Grid.RowDefinitions>
+
+        <!-- Booking List -->
+        <DataGrid x:Name="dgBookingList" Grid.Row="0" AutoGenerateColumns="False" Height="300"
+                  SelectionChanged="dgBookingList_SelectionChanged" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Booking ID" Binding="{Binding BookingReservationID}" Width="*"/>
+                <DataGridTextColumn Header="Customer" Binding="{Binding Customer.CustomerFullName}" Width="2*"/>
+                <DataGridTextColumn Header="Booking Date" Binding="{Binding BookingDate}" Width="*"/>
+                <DataGridTextColumn Header="Total Price" Binding="{Binding TotalPrice}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
+            <Button Content="Add Booking" Width="120" Margin="0,0,10,0" Click="BtnAdd_Click"/>
+            <Button Content="Edit Booking" Width="120" Click="BtnEdit_Click"/>
+        </StackPanel>
+
+        <!-- Booking Details -->
+        <GroupBox Grid.Row="2" Header="Booking Details của Booking đang chọn">
+            <DataGrid x:Name="dgBookingDetails" AutoGenerateColumns="False" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Room ID" Binding="{Binding RoomID}" Width="*"/>
+                    <DataGridTextColumn Header="Start Date" Binding="{Binding StartDate}" Width="*"/>
+                    <DataGridTextColumn Header="End Date" Binding="{Binding EndDate}" Width="*"/>
+                    <DataGridTextColumn Header="Actual Price" Binding="{Binding ActualPrice}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+    </Grid>
+</Window>

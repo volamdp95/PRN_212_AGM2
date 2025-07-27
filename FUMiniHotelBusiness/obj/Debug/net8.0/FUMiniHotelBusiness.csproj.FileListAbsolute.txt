@@ -1,0 +1,17 @@
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\bin\Debug\net8.0\FUMiniHotelBusiness.deps.json
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\bin\Debug\net8.0\FUMiniHotelBusiness.dll
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\bin\Debug\net8.0\FUMiniHotelBusiness.pdb
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\bin\Debug\net8.0\FUMiniHotelDataAccess.dll
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\bin\Debug\net8.0\FUMiniHotelRepositories.dll
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\bin\Debug\net8.0\FUMiniHotelDataAccess.pdb
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\bin\Debug\net8.0\FUMiniHotelRepositories.pdb
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHotelBusiness.csproj.AssemblyReference.cache
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHotelBusiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHotelBusiness.AssemblyInfoInputs.cache
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHotelBusiness.AssemblyInfo.cs
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHotelBusiness.csproj.CoreCompileInputs.cache
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHo.1AB77BC0.Up2Date
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHotelBusiness.dll
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\refint\FUMiniHotelBusiness.dll
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\FUMiniHotelBusiness.pdb
+C:\Users\caung\OneDrive\Máy tính\NguyenVanCau_DE180736_A02\FUMiniHotelBusiness\obj\Debug\net8.0\ref\FUMiniHotelBusiness.dll

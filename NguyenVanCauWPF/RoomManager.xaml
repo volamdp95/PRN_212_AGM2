@@ -1,0 +1,42 @@
+﻿<Window x:Class="NguyenVanCauWPF.RoomManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NguyenVanCauWPF"
+        mc:Ignorable="d"
+        Title="RoomManager" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBox x:Name="txtSearch" Width="200" Margin="0,0,10,0"/>
+            <Button Content="Tìm" Width="80" Click="Search_Click" Margin="0,0,10,0"/>
+            <Button Content="Thêm" Width="80" Click="Add_Click"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dgRoom" AutoGenerateColumns="False" Grid.Row="1" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding RoomID}" Width="50"/>
+                <DataGridTextColumn Header="Số phòng" Binding="{Binding RoomNumber}" Width="100"/>
+                <DataGridTextColumn Header="Loại phòng" Binding="{Binding RoomType.RoomTypeName}" Width="150"/>
+                <DataGridTextColumn Header="Sức chứa" Binding="{Binding RoomMaxCapacity}" Width="80"/>
+                <DataGridTextColumn Header="Giá/ngày" Binding="{Binding RoomPricePerDay}" Width="100"/>
+                <DataGridTextColumn Header="Trạng thái" Binding="{Binding RoomStatus}" Width="80"/>
+                <DataGridTemplateColumn Header="Tác vụ" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Sửa" Width="60" Margin="0,0,5,0" Click="Edit_Click"/>
+                                <Button Content="Xóa" Width="60" Click="Delete_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

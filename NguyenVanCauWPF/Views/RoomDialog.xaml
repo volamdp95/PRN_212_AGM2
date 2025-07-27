@@ -1,0 +1,46 @@
+﻿<Window x:Class="NguyenVanCauWPF.Views.RoomDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NguyenVanCauWPF.Views"
+        mc:Ignorable="d"
+        Title="RoomDialog" Height="450" Width="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <TextBlock Text="Số phòng:"/>
+            <TextBox Text="{Binding Room.RoomNumber}" Margin="0,5"/>
+
+            <TextBlock Text="Mô tả:"/>
+            <TextBox Text="{Binding Room.RoomDetailDescription}" Margin="0,5"/>
+
+            <TextBlock Text="Sức chứa:"/>
+            <TextBox Text="{Binding Room.RoomMaxCapacity}" Margin="0,5"/>
+
+            <TextBlock Text="Giá/ngày:"/>
+            <TextBox Text="{Binding Room.RoomPricePerDay}" Margin="0,5"/>
+
+            <TextBlock Text="Loại phòng:"/>
+            <ComboBox x:Name="cboRoomType"
+                      DisplayMemberPath="RoomTypeName"
+                      SelectedValuePath="RoomTypeID"
+                      Margin="0,5"/>
+
+            <TextBlock Text="Trạng thái:"/>
+            <ComboBox SelectedValue="{Binding Room.RoomStatus}" Margin="0,5">
+                <ComboBoxItem Content="1"/>
+                <ComboBoxItem Content="0"/>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button Content="Lưu" Width="80" Margin="0,0,10,0" Click="Save_Click"/>
+            <Button Content="Hủy" Width="80" Click="Cancel_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
